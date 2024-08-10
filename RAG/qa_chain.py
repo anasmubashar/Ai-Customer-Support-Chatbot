@@ -12,3 +12,10 @@ def get_qa_chain():
         retriever=vectorstore.as_retriever()
     )
     return qa_chain
+
+def run_qa_chain(qa_chain, user_input):
+    try:
+        answer = qa_chain.run(user_input)
+        return answer
+    except Exception as e:
+        raise ValueError(f"Error running QA chain: {str(e)}")
