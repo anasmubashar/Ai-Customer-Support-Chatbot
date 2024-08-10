@@ -1,7 +1,7 @@
 from langchain.vectorstores import FAISS
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.document_loaders import TextLoader
-from config import KNOWLEDGE_BASE_PATH, GOOGLE_API_KEY
+from RAG.config import KNOWLEDGE_BASE_PATH, GOOGLE_API_KEY
 import google.generativeai as genai
 
 class GeminiEmbeddings:

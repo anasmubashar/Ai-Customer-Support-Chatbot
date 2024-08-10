@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
-from models import ChatRequest
-from qa_chain import get_qa_chain
-from utils import generate_analysis_and_tips
+from RAG.models import ChatRequest
+from RAG.qa_chain import get_qa_chain
+from RAG.utils import generate_analysis_and_tips
 
 app = FastAPI()
 qa_chain = get_qa_chain()

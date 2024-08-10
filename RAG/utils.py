@@ -1,5 +1,5 @@
 from langchain_google_genai import GoogleGenerativeAI
-from config import GOOGLE_API_KEY
+from RAG.config import GOOGLE_API_KEY
 
 llm = GoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=GOOGLE_API_KEY)
 
