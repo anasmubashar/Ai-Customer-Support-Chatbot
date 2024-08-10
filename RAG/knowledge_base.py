@@ -1,10 +1,11 @@
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.document_loaders import TextLoader
+from langchain_community.document_loaders import TextLoader
+from langchain.embeddings.base import Embeddings
 from RAG.config import KNOWLEDGE_BASE_PATH, GOOGLE_API_KEY
 import google.generativeai as genai
 
-class GeminiEmbeddings:
+class GeminiEmbeddings(Embeddings):
     def __init__(self, api_key):
         genai.configure(api_key=api_key)
         self.model = "models/text-embedding-004"
