@@ -1,30 +1,20 @@
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-import google.generativeai as genai
-from dotenv import load_dotenv
-import os
-
-load_dotenv('.env.local')
+from models import ChatRequest
+from qa_chain import get_qa_chain
+from utils import generate_analysis_and_tips
 
 app = FastAPI()
-
-# Configure Google Gemini
-genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
-model = genai.GenerativeModel('gemini-1.5-flash')
-
-class ChatRequest(BaseModel):
-    user_input: str
+qa_chain = get_qa_chain()
 
 @app.post("/chat")
 async def chat(request: ChatRequest):
     try:
-        chat = model.start_chat(
-            history=[
-                {"role": "user", "parts": "Hello"},
-                {"role": "model", "parts": "Great to meet you. What would you like to know?"},
-            ]
-        )
-        chat_response = chat.send_message(request.user_input)
-        return {"response": chat_response.text}
+        answer = qa_chain.run(request.user_input)
+        analysis, tips = generate_analysis_and_tips(request.user_input)
+        return {
+            "question_analysis": analysis,
+            "answer": answer,
+            "tips": tips
+        }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
