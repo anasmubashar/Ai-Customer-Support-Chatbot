@@ -1,0 +1,79 @@
+Question: Reverse a String
+Answer: "hello"[::-1] results in "olleh"
+Tip: Use slicing with [::-1] to reverse a string.
+
+Question: Check for Palindrome
+Answer: "racecar" == "racecar"[::-1] evaluates to True
+Tip: Compare the string with its reverse.
+
+Question: Find the Maximum Element in an Array
+Answer: max([3, 5, 1, 9]) returns 9
+Tip: Use the built-in max() function.
+
+Question: Count the Occurrences of a Character in a String
+Answer: "hello".count('l') returns 2
+Tip: Use the count() method of strings.
+
+Question: Sort an Array
+Answer: [3, 1, 2].sort() results in [1, 2, 3]
+Tip: Use sort() method or sorted() function.
+
+Question: Find the Fibonacci Sequence
+Answer: fibonacci(n) where fibonacci(5) returns 5
+Tip: Use recursion or an iterative approach.
+
+Question: Check for Prime Number
+Answer: is_prime(7) returns True
+Tip: Test divisibility up to the square root of the number.
+
+Question: Find the Factorial of a Number
+Answer: math.factorial(5) returns 120
+Tip: Use recursion or math.factorial() function.
+
+Question: Merge Two Sorted Arrays
+Answer: merge([1, 3], [2, 4]) results in [1, 2, 3, 4]
+Tip: Use two pointers to merge arrays.
+
+Question: Remove Duplicates from a List
+Answer: list(set([1, 2, 2, 3])) results in [1, 2, 3]
+Tip: Convert the list to a set and back.
+
+Question: Find the GCD of Two Numbers
+Answer: gcd(48, 18) returns 6
+Tip: Use the Euclidean algorithm.
+
+Question: Find the Longest Common Substring
+Answer: For "abcdxyz" and "xyzabcd", the longest common substring is "abcd"
+Tip: Use dynamic programming.
+
+Question: Calculate the Sum of Digits in a Number
+Answer: sum(int(digit) for digit in str(123)) returns 6
+Tip: Convert the number to a string and sum the digits.
+
+Question: Implement Binary Search
+Answer: For a sorted array [1, 2, 3, 4, 5] and target 3, binary_search() returns 2
+Tip: Divide the search interval in half.
+
+Question: Detect a Cycle in a Linked List
+Answer: Use Floyd’s Cycle-Finding Algorithm to determine if there is a cycle.
+Tip: Use two pointers moving at different speeds.
+
+Question: Rotate an Array
+Answer: rotate([1, 2, 3, 4], 2) results in [3, 4, 1, 2]
+Tip: Use slicing to rotate.
+
+Question: Find the Missing Number in an Array of 1 to N
+Answer: For [1, 2, 4] with N=4, the missing number is 3
+Tip: Use the sum formula for first N natural numbers.
+
+Question: Convert a String to Integer
+Answer: int("123") returns 123
+Tip: Use int() function for conversion.
+
+Question: Implement a Stack Using Queues
+Answer: Use two queues to simulate stack operations.
+Tip: Use one queue to maintain the elements and the other for temporary storage.
+
+Question: Find All Permutations of a String
+Answer: For "abc", permutations are ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+Tip: Use recursion or itertools.permutations().
