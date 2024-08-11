@@ -4,14 +4,17 @@ from RAG.knowledge_base import get_vectorstore
 from RAG.config import GOOGLE_API_KEY
 
 def get_qa_chain():
-    llm = GoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=GOOGLE_API_KEY)
-    vectorstore = get_vectorstore()
-    qa_chain = RetrievalQA.from_chain_type(
-        llm=llm,
-        chain_type="stuff",
-        retriever=vectorstore.as_retriever()
-    )
-    return qa_chain
+    try:
+        llm = GoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=GOOGLE_API_KEY)
+        vectorstore = get_vectorstore()
+        qa_chain = RetrievalQA.from_chain_type(
+            llm=llm,
+            chain_type="stuff",
+            retriever=vectorstore.as_retriever()
+        )
+        return qa_chain
+    except Exception as e:
+        raise ValueError(f'Error creating QA chain: {str(e)}')
 
 def run_qa_chain(qa_chain, user_input):
     try:
