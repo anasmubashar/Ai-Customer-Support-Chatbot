@@ -41,12 +41,8 @@ def get_vectorstore():
     text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
     texts = text_splitter.split_documents(documents)
     
-    embeddings = GeminiEmbeddings(GOOGLE_API_KEY)
-    
-    # Get embeddings for each text
-    embedded_texts = embeddings.embed_documents([doc.page_content for doc in texts])
-    
-    # Create vectorstore from documents and embeddings
+    embeddings = GeminiEmbeddings(GOOGLE_API_KEY)    
+
     vector_db = FAISS.from_documents(texts, embeddings)
     
     return vector_db
