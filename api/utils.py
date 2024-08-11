@@ -7,10 +7,10 @@ def generate_analysis_and_tips(user_input):
     try:
         # Pass a list of strings to `llm.generate`
         prompts = [
-            "Analyze this coding interview question and keep the answer extremely concise: " + user_input
+            "Analyze this coding interview question and keep the answer extremely concise and do not return text between asterisks (): " + user_input
         ]
         prompts2 = [
-            "Provide tips for answering this coding interview question and keep the answer extremely short:" + user_input
+            "Provide tips for answering this coding interview question and keep the answer extremely short and do not return text between asterisks (): " + user_input
         ]
         analysis = llm.generate(prompts)
         tips = llm.generate(prompts2)

@@ -33,10 +33,12 @@ def retrieval(user_input):
     template = """
     You are a helpful AI assistant for coding interviews.
     Answer based on the context provided.
+    Keep answers short and do not return text between asterisks ().
     context: {context}
     input: {input}
     answer:
     """
+
     
     # Create a prompt
     prompt = PromptTemplate.from_template(template)
